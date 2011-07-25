@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.org</groupId>
+	<artifactId>agenda-contatos-resteasy</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<name>AgendaContatosRESTEasy</name>
+	<properties>
+		<resteasy.version>2.2.1.GA</resteasy.version>
+		<apache.derby.version>10.8.1.2</apache.derby.version>
+		<hibernate.core.version>3.6.6.Final</hibernate.core.version>
+		<hibernate.annotations.version>3.5.6-Final</hibernate.annotations.version>
+		<resteasy.jettison.version>2.2.1.GA</resteasy.jettison.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>${resteasy.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>${apache.derby.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>${hibernate.annotations.version}</version>
+		</dependency>
+		<dependency>
+  <groupId>org.jboss.resteasy</groupId>
+  <artifactId>resteasy-jettison-provider</artifactId>
+  <version>${resteasy.jettison.version}</version>
+</dependency>
+	</dependencies>
+	<description>Um simples sistema que demonstra o uso de RESTEasy com tecnologias maduras do mundo Java.</description>
+	<url>https://github.com/jesuino/agenda-contatos-resteasy</url>
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
