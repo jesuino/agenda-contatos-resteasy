@@ -8,10 +8,10 @@
 	<name>AgendaContatosRESTEasy</name>
 	<properties>
 		<resteasy.version>2.2.1.GA</resteasy.version>
-		<apache.derby.version>10.8.1.2</apache.derby.version>
-		<hibernate.core.version>3.6.6.Final</hibernate.core.version>
-		<hibernate.annotations.version>3.5.6-Final</hibernate.annotations.version>
+		<hibernate.core.version>3.3.1.GA</hibernate.core.version>
+		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
 		<resteasy.jettison.version>2.2.1.GA</resteasy.jettison.version>
+		<hibernate.entitymanager.version>3.3.2.GA</hibernate.entitymanager.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,7 +22,8 @@
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
-			<version>${apache.derby.version}</version>
+			<version>10.8.1.2</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -30,15 +31,36 @@
 			<version>${hibernate.core.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 			<version>${hibernate.annotations.version}</version>
 		</dependency>
 		<dependency>
-  <groupId>org.jboss.resteasy</groupId>
-  <artifactId>resteasy-jettison-provider</artifactId>
-  <version>${resteasy.jettison.version}</version>
-</dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jettison-provider</artifactId>
+			<version>${resteasy.jettison.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.entitymanager.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<description>Um simples sistema que demonstra o uso de RESTEasy com tecnologias maduras do mundo Java.</description>
 	<url>https://github.com/jesuino/agenda-contatos-resteasy</url>

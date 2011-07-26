@@ -33,15 +33,16 @@ public class PessoaTest {
 
 	@After
 	public void finalizaTeste() {
-		em.getTransaction().begin();
-		em.persist(pessoa);
-		em.getTransaction().commit();
-		assertNotSame(Collections.EMPTY_LIST, em.createQuery("from Pessoa").getResultList());
+		
 	}
 
 	@Test
 	public void criaPessoa() {
-
+		em.getTransaction().begin();
+		pessoa.setId(1);
+		em.persist(pessoa);
+		em.getTransaction().commit();
+		assertNotSame(Collections.EMPTY_LIST, em.createQuery("from Pessoa").getResultList());
 	}
 
 	@Test
