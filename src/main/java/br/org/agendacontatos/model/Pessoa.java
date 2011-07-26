@@ -10,6 +10,7 @@ import javax.persistence.Id;
 public class Pessoa {
 	
 	@Id
+	@GeneratedValue
     private int id;
     
     private String nome;
