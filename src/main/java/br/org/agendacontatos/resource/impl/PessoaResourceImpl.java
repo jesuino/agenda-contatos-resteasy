@@ -11,10 +11,15 @@ import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 import br.org.agendacontatos.model.Pessoa;
+import br.org.agendacontatos.persistencia.GerenciaEntityManager;
 import br.org.agendacontatos.resource.PessoaResource;
 
 public class PessoaResourceImpl implements PessoaResource {
 	EntityManager em;
+
+	public PessoaResourceImpl() {
+		em = GerenciaEntityManager.getEntityManager();
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Pessoa> recuperarTodos() {
@@ -23,13 +28,16 @@ public class PessoaResourceImpl implements PessoaResource {
 
 	public Response recuperar(@PathParam("id") int id) {
 		Pessoa p = em.find(Pessoa.class, id);
+		if (p == null) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
 		return Response.ok(p).build();
 	}
 
 	public Response atualizar(@PathParam("id") int id, Pessoa novaPessoa) {
 		Pessoa p = em.find(Pessoa.class, id);
 		if (p == null)
-			return null;
+			return Response.status(Response.Status.NOT_FOUND).build();
 		p.setDataCriacao(novaPessoa.getDataCriacao());
 		p.setEmail(novaPessoa.getEmail());
 		p.setEndereco(novaPessoa.getEndereco());
@@ -44,22 +52,23 @@ public class PessoaResourceImpl implements PessoaResource {
 
 	public Response apagar(@PathParam("id") int id) {
 		Pessoa p = em.find(Pessoa.class, id);
-		if (p == null)
-			return null;
-		em.getTransaction().begin();
-		em.remove(p);
-		em.getTransaction().commit();
-		return Response.ok().build();
+		if (p != null) {
+			em.getTransaction().begin();
+			em.remove(p);
+			em.getTransaction().commit();
+		}
+		// Retornar nulo é o mesmo que 204
+		return null;
 	}
 
 	public Response criar(Pessoa p, @Context UriInfo info) {
 		if (p == null)
 			throw new WebApplicationException(Response.Status.BAD_REQUEST);
 		em.getTransaction().begin();
-		em.persist(p);		
-		em.getTransaction().commit();
+		em.persist(p);
 		em.flush();
-		UriBuilder builder = info.getBaseUriBuilder();
+		em.getTransaction().commit();
+		UriBuilder builder = info.getAbsolutePathBuilder();		
 		builder.path(String.valueOf(p.getId()));
 		return Response.created(builder.build()).build();
 	}

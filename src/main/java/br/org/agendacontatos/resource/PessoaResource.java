@@ -21,7 +21,7 @@ import br.org.agendacontatos.model.Pessoa;
 
 
 @Path("/pessoa")
-@Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
+@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 public interface PessoaResource {
 
 	@GET
@@ -33,7 +33,7 @@ public interface PessoaResource {
 
 	@PUT
 	@Path("/{id}")
-	@Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response atualizar(@PathParam("id") int id, Pessoa novaPessoa);
 
 	@DELETE
@@ -41,7 +41,7 @@ public interface PessoaResource {
 	public Response apagar(@PathParam("id") int id);
 
 	@POST
-	@Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public Response criar(Pessoa p, @Context UriInfo info);
 
 }
