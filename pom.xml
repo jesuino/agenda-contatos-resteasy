@@ -7,11 +7,14 @@
 	<packaging>war</packaging>
 	<name>AgendaContatosRESTEasy</name>
 	<properties>
-		<resteasy.version>2.2.1.GA</resteasy.version>
+		<resteasy.version>2.2.1.GA</resteasy.version>		
 		<hibernate.core.version>3.3.1.GA</hibernate.core.version>
+		<hibernate.core.version>3.3.1.GA</hibernate.core.version>		
 		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
 		<resteasy.jettison.version>2.2.1.GA</resteasy.jettison.version>
 		<hibernate.entitymanager.version>3.3.2.GA</hibernate.entitymanager.version>
+		<servlet.version>2.5</servlet.version>
+		<tjws.version>2.2.1.GA</tjws.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,6 +63,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>tjws</artifactId>
+			<version>${tjws.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<description>Um simples sistema que demonstra o uso de RESTEasy com tecnologias maduras do mundo Java.</description>
