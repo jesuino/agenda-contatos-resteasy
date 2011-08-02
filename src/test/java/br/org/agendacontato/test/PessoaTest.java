@@ -32,17 +32,13 @@ public class PessoaTest {
 	public static void inicializaEm() throws Exception {
 		emf = Persistence.createEntityManagerFactory("AgendaContatos");
 		em = emf.createEntityManager();
+		tx = em.getTransaction();
 	}
 
 	@AfterClass
 	public static void finalizaEm() {
 		em.close();
 		emf.close();
-	}
-
-	@Before
-	public void iniciaTransacao() {
-		tx = em.getTransaction();
 	}
 
 	@SuppressWarnings("unchecked")

@@ -24,8 +24,8 @@ public class PessoaResourceTest {
 	 * Sobe o servidor interno para testes
 	 */
 	@BeforeClass
-	public static void iniciaServidor() {
-		TJWSEmbeddedJaxrsServer tjws = new TJWSEmbeddedJaxrsServer();
+	public static void iniciaServidor() {		
+		TJWSEmbeddedJaxrsServer tjws = new TJWSEmbeddedJaxrsServer();		
 		tjws.setPort(8081);
 		tjws.getDeployment().getActualResourceClasses()
 				.add(PessoaResourceImpl.class);
