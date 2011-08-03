@@ -23,6 +23,10 @@ public class PessoaResourceImpl implements PessoaResource {
 
 	@SuppressWarnings("unchecked")
 	public List<Pessoa> recuperarTodos() {
+		List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+		//Retornar nulo resulta em 204
+		if(pessoas.size() == 0)
+			return null;
 		return em.createQuery("from Pessoa").getResultList();
 	}
 
@@ -52,13 +56,12 @@ public class PessoaResourceImpl implements PessoaResource {
 
 	public Response apagar(@PathParam("id") int id) {
 		Pessoa p = em.find(Pessoa.class, id);
-		if (p != null) {
-			em.getTransaction().begin();
-			em.remove(p);
-			em.getTransaction().commit();
-		}
-		// Retornar nulo é o mesmo que 204
-		return null;
+		if (p == null)	
+			return Response.status(Response.Status.NOT_FOUND).build();		
+		em.getTransaction().begin();
+		em.remove(p);
+		em.getTransaction().commit();		
+		return Response.noContent().build();
 	}
 
 	public Response criar(Pessoa p, @Context UriInfo info) {

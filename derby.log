@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Thu Aug 04 00:16:52 AFT 2011:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0131-912f-2947-000000a42e00 
+on database directory E:\projetos\agenda-contatos-resteasy\data\agendacontatos  with class loader sun.misc.Launcher$AppClassLoader@11b86e7 
+Loaded from file:/H:/Documents%20and%20Settings/William/.m2/repository/org/apache/derby/derby/10.8.1.2/derby-10.8.1.2.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_26-b03
+user.dir=E:\projetos\agenda-contatos-resteasy
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
